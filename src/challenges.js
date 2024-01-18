@@ -158,4 +158,45 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct(array) {
+  let arrayNumber = 0;
+  const arrLength1 = array.length
+  let arrLength2 = 0;
+  let horizontalProductOfFour = 0;
+  let verticalProductOfFour = 0;
+  let highestProductOfFour = 0;
+
+  console.log(arrLength1);
+  console.log(arrLength2);
+
+  for (let i = 0; i < arrLength1-3; i++) {
+    let arrLength2 = array[i].length;
+    for (let j = 0; j < arrLength2-3; j++) {
+      
+      horizontalProductOfFour = array[i][j] * array[i][j+1] * array[i][j+2] * array[i][j+3];
+
+      if (horizontalProductOfFour > highestProductOfFour) {
+        highestProductOfFour = horizontalProductOfFour;
+      }
+
+      verticalProductOfFour = array[i][j] * array[i+1][j] * array[i+2][j] * array[i+3][j];
+
+      if (verticalProductOfFour > highestProductOfFour) {
+        highestProductOfFour = verticalProductOfFour;
+      }
+    return highestProductOfFour;
+    console.log(highestProductOfFour)}
+    
+  }
+  
+  /*
+  for (let i = 0; i < array[i].length; i++) {
+    for (let j = 0; j < array[0][i][j].length; j++) {
+      //console.log(array[0][i][j])
+    }
+  }
+  //console.log(array[0][0]);
+  */
+}
+
+console.log(greatestProduct(matrix));
