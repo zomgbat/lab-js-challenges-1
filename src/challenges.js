@@ -159,44 +159,48 @@ const matrix = [
 ];
 
 function greatestProduct(array) {
-  let arrayNumber = 0;
+  // Get the length of the outer array
   const arrLength1 = array.length
+
+  // Declare a variable for the length of the inner array
   let arrLength2 = 0;
+
+  // Declare the variables needed to perform product comparisons
   let horizontalProductOfFour = 0;
   let verticalProductOfFour = 0;
   let highestProductOfFour = 0;
 
-  console.log(arrLength1);
-  console.log(arrLength2);
-
+  // Loop through outer array
   for (let i = 0; i < arrLength1-3; i++) {
-    let arrLength2 = array[i].length;
+    // Update length of inner array
+    arrLength2 = array[i].length;
+
+    // Loop through inner array
     for (let j = 0; j < arrLength2-3; j++) {
       
+      // Calculate the product of an element and the next 3 elements horizontally
+      // and update the variable that stores that value
       horizontalProductOfFour = array[i][j] * array[i][j+1] * array[i][j+2] * array[i][j+3];
 
+      // Compare the horizontal product of four elements with the current highest product of 4 elements
+      // If it is higher, update highest product of four elements
       if (horizontalProductOfFour > highestProductOfFour) {
         highestProductOfFour = horizontalProductOfFour;
       }
 
+      // Calculate the product of an element and the next 3 elements vertically
+      // and update the variable that stores that value
       verticalProductOfFour = array[i][j] * array[i+1][j] * array[i+2][j] * array[i+3][j];
 
+      // Compare the vertical product of four elements with the current highest product of 4 elements
+      // If it is higher, update highest product of four elements
       if (verticalProductOfFour > highestProductOfFour) {
         highestProductOfFour = verticalProductOfFour;
       }
+
+    // Return the highest recorded product of 4 elements
     return highestProductOfFour;
-    console.log(highestProductOfFour)}
+    }
     
   }
-  
-  /*
-  for (let i = 0; i < array[i].length; i++) {
-    for (let j = 0; j < array[0][i][j].length; j++) {
-      //console.log(array[0][i][j])
-    }
-  }
-  //console.log(array[0][0]);
-  */
 }
-
-console.log(greatestProduct(matrix));
